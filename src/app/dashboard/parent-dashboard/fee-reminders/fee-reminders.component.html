@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fee Reminder | Parent Dashboard - Digital School</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #f0f6ff, #eaf1ff);
+      font-family: "Poppins", sans-serif;
+      color: #333;
+    }
+
+    /* ===== Navbar ===== */
+    .navbar {
+      background: linear-gradient(90deg, #004aad, #007bff);
+    }
+    .navbar-brand {
+      font-weight: 700;
+      color: #fff;
+    }
+    .navbar-brand span {
+      color: #ffd43b;
+    }
+    .navbar .bi {
+      color: #fff;
+      font-size: 1.3rem;
+    }
+
+    /* ===== Page Header ===== */
+    .page-header {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+    .page-header h2 {
+      font-weight: 700;
+      color: #004aad;
+    }
+    .page-header p {
+      color: #555;
+    }
+
+    /* ===== Summary Section ===== */
+    .summary-cards {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .summary-card {
+      flex: 1 1 250px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .summary-card:hover {
+      transform: translateY(-5px);
+    }
+    .summary-card i {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .summary-card h5 {
+      font-size: 1rem;
+      color: #555;
+    }
+    .summary-card p {
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    /* ===== Fee Reminder Cards ===== */
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .status-badge {
+      font-size: 0.9rem;
+      border-radius: 8px;
+    }
+    .pay-btn {
+      background: linear-gradient(90deg, #ffd43b, #ffc107);
+      border: none;
+      font-weight: 600;
+      color: #000;
+    }
+    .pay-btn:hover {
+      background: linear-gradient(90deg, #ffc107, #ffb100);
+    }
+
+    .progress {
+      height: 8px;
+      border-radius: 10px;
+    }
+
+    footer {
+      margin-top: 50px;
+      background: #f8f9fa;
+      padding: 15px;
+      text-align: center;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  
+  <!-- ===== Page Header ===== -->
+  <div class="page-header">
+    <h2>Fee Reminder </h2>
+    <p>Manage your child’s fee payments easily and stay updated.</p>
+  </div>
+
+  <!-- ===== Fee Summary ===== -->
+  <div class="container mb-4">
+    <div class="summary-cards">
+      <div class="summary-card">
+        <i class="bi bi-wallet2 text-primary"></i>
+        <h5>Total Paid</h5>
+        <p class="text-success">₹8,500</p>
+      </div>
+      <div class="summary-card">
+        <i class="bi bi-clock-history text-warning"></i>
+        <h5>Pending Amount</h5>
+        <p class="text-danger">₹3,000</p>
+      </div>
+      <div class="summary-card">
+        <i class="bi bi-calendar-event text-info"></i>
+        <h5>Upcoming Due</h5>
+        <p class="text-info">10th Nov 2025</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Progress Section ===== -->
+  <div class="container mb-4">
+    <h6 class="text-center text-secondary mb-2">Annual Fee Progress</h6>
+    <div class="progress w-75 mx-auto">
+      <div class="progress-bar bg-success" style="width: 75%">75%</div>
+    </div>
+  </div>
+
+  <!-- ===== Fee Reminder Cards ===== -->
+  <div class="container mt-4">
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-3">
+          <div class="card-body">
+            <h5 class="card-title text-primary fw-bold">Tuition Fee - November</h5>
+            <p><i class="bi bi-calendar2-event me-2 text-warning"></i><strong>Due:</strong> 10 Nov 2025</p>
+            <p><i class="bi bi-cash-coin me-2 text-success"></i><strong>Amount:</strong> ₹3,000</p>
+            <span class="badge bg-danger status-badge mb-3">Pending</span>
+            <div class="d-flex justify-content-between">
+              <button class="btn pay-btn btn-sm"><i class="bi bi-credit-card me-1"></i> Pay Now</button>
+              <button class="btn btn-outline-primary btn-sm"><i class="bi bi-eye me-1"></i> Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-3">
+          <div class="card-body">
+            <h5 class="card-title text-primary fw-bold"> Exam Fee - Term 2</h5>
+            <p><i class="bi bi-calendar2-event me-2 text-warning"></i><strong>Due:</strong> 15 Nov 2025</p>
+            <p><i class="bi bi-cash-coin me-2 text-success"></i><strong>Amount:</strong> ₹1,500</p>
+            <span class="badge bg-warning text-dark status-badge mb-3">Upcoming</span>
+            <div class="d-flex justify-content-between">
+              <button class="btn pay-btn btn-sm"><i class="bi bi-credit-card me-1"></i> Pay Now</button>
+              <button class="btn btn-outline-primary btn-sm"><i class="bi bi-eye me-1"></i> Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-3">
+          <div class="card-body">
+            <h5 class="card-title text-primary fw-bold">Library Fee - Annual</h5>
+            <p><i class="bi bi-calendar2-event me-2 text-success"></i><strong>Paid On:</strong> 5 Oct 2025</p>
+            <p><i class="bi bi-cash-coin me-2 text-success"></i><strong>Amount:</strong> ₹500</p>
+            <span class="badge bg-success status-badge mb-3">Paid</span>
+            <div class="d-flex justify-content-end">
+              <button class="btn btn-outline-success btn-sm"><i class="bi bi-receipt-cutoff me-1"></i> Receipt</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    © 2025 Digital School | All Rights Reserved
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

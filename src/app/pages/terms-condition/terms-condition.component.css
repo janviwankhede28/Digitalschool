@@ -1,0 +1,48 @@
+/* Import a clean modern font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Background color same as your yellow theme */
+.terms-container {
+  background: linear-gradient(135deg, #dee1e4 0%, #ffc107 100%);
+  min-height: 100vh;
+  color: #212529;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Content spacing and readability */
+.terms-content p {
+  line-height: 1.7;
+  font-size: 1rem;
+  color: #212529;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Headings style */
+.terms-content h4,
+.terms-container h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+/* Link styling */
+a.text-primary {
+  color: #003d99 !important; /* your blue shade */
+  font-family: 'Poppins', sans-serif;
+}
+
+a.text-primary:hover {
+  text-decoration: underline;
+}
+
+/* Simple button style */
+.btn-dark {
+  background-color: #212529;
+  color: #fff;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-dark:hover {
+  background-color: #000;
+  transform: translateY(-3px);
+}

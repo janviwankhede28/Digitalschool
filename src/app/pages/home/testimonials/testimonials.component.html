@@ -1,0 +1,102 @@
+<section class="testimonial-section d-flex align-items-center justify-content-center">
+  <div class="overlay"></div> <!-- Stronger white fade overlay -->
+
+  <div class="container text-center position-relative">
+    <h2 class="fw-bold mb-4 text-dark text-shadow">Testimonials</h2>
+
+    <!-- Carousel -->
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500">
+      <div class="carousel-inner">
+
+        <!-- Testimonial 1 -->
+        <div class="carousel-item active">
+          <div class="testimonial-content mx-auto">
+            <i class="bi bi-quote text-warning fs-1"></i>
+            <p class="fs-5 mt-3 text-dark">
+              The academics were exceptional but even better was the character development program. The teachers & administrators were loving & supportive & fully accessible. Our kids were immensely successful in Highschool & College.
+            </p>
+            <h5 class="fw-bold mt-3 text-dark">Neha Mishra</h5>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="carousel-item">
+          <div class="testimonial-content mx-auto">
+            <i class="bi bi-quote text-warning fs-1"></i>
+            <p class="fs-5 mt-3 text-dark">
+              Amazing academics & character development. The staff always supported us and made learning fun. Highly recommend!
+            </p>
+            <h5 class="fw-bold mt-3 text-dark">Mayur Bhatt</h5>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="carousel-item">
+          <div class="testimonial-content mx-auto">
+            <i class="bi bi-quote text-warning fs-1"></i>
+            <p class="fs-5 mt-3 text-dark">
+              Very supportive teachers and a great learning environment. My kids loved every moment at this school!
+            </p>
+            <h5 class="fw-bold mt-3 text-dark">Riya Sharma</h5>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Carousel Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Section Background with stronger fade */
+.testimonial-section {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('https://walib.com.au/wp-content/uploads/2021/04/library-wall-decorated.png') no-repeat center center/cover;
+  overflow: hidden;
+}
+
+/* Stronger white fade overlay */
+.testimonial-section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7); /* more fade */
+  backdrop-filter: blur(4px); /* increased blur */
+  z-index: 1;
+}
+
+/* Ensure content appears above overlay */
+.testimonial-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Text Content */
+.testimonial-content {
+  max-width: 800px;
+  margin: auto;
+  font-size: medium;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(0%); /* dark arrows for contrast */
+}
+</style>

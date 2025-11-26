@@ -1,0 +1,34 @@
+h2 {
+  font-weight: 700;
+}
+
+.table thead th {
+  background-color: #fff3cd;
+  font-weight: 600;
+}
+
+.table tbody tr:hover {
+  background-color: #fff8e1;
+}
+
+.badge {
+  font-size: 0.85rem;
+  padding: 0.35em 0.65em;
+  border-radius: 12px;
+}
+
+.btn-outline-primary, .btn-outline-danger {
+  border-radius: 8px;
+}
+
+.btn-success {
+  font-weight: 600;
+}
+
+.card {
+  border-radius: 15px;
+}
+
+.form-control-lg, .form-select-lg {
+  height: 45px;
+}

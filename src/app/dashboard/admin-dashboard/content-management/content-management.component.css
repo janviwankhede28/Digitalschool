@@ -1,0 +1,16 @@
+h2 {
+  font-weight: 700;
+}
+
+.table thead th {
+  background-color: #fff3cd;
+  font-weight: 600;
+}
+
+.table tbody tr:hover {
+  background-color: #fff8e1;
+}
+
+.btn-outline-primary, .btn-outline-danger {
+  border-radius: 8px;
+}

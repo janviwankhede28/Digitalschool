@@ -1,0 +1,97 @@
+/* === HEADING === */
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+}
+
+.black-text {
+  color: #000000; /* black */
+}
+
+.yellow-text {
+  color: #FFD700; /* bright yellow */
+}
+
+/* Subheading text */
+.subtext {
+  color: #333;
+  font-weight: 500;
+}
+
+/* === CARD DESIGN === */
+.syllabus-card {
+  background-color: #fae152; /* soft yellow */
+  border-radius: 16px;
+  height: 130px; /* ↓ reduced height */
+  width: 90%; /* ↓ reduced width slightly */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  margin: auto; /* centers the card */
+}
+
+
+.syllabus-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  background-color: #fae152cc; /* lighter yellow on hover */
+}
+
+.syllabus-card h5 {
+  font-size: 1.2rem;
+  color: #000;
+}
+
+/* === BUTTON DESIGN === */
+.btn-blue {
+  background-color: #0056d6; /* vivid blue */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-blue:hover {
+  background-color: #003ea6; /* darker blue on hover */
+  transform: scale(1.05);
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 576px) {
+  .syllabus-card {
+    height: 160px;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+}
+.syllabus-bg {
+  background-image: url('/assets/syllabus bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 60px 20px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Light overlay to brighten image */
+.syllabus-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.60); /* MORE LIGHTNESS */
+  border-radius: inherit;
+  z-index: 0;
+}
+
+/* Content always above overlay */
+.syllabus-bg > * {
+  position: relative;
+  z-index: 1;
+}

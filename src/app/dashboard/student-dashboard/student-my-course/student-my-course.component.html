@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Courses | Student Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <style>
+   
+    
+    .course-card {
+      border: 2px solid #ffc107;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      background-color: #fff;
+    }
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+    .course-image {
+      border-radius: 12px 12px 0 0;
+      height: 180px;
+      object-fit: cover;
+    }
+    .progress-bar {
+      background-color: #ffc107 !important;
+    }
+    .btn-warning {
+      background-color: #ffc107;
+      border: none;
+    }
+    .btn-warning:hover {
+      background-color: #e0a800;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container py-5">
+    <!-- Header Section -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+      <div>
+        <h2 class="fw-bold text-dark">My Courses</h2>
+        <p class="text-secondary mb-0">Track your learning progress and continue where you left off.</p>
+      </div>
+      <div class="d-flex align-items-center gap-2 mt-3 mt-md-0">
+        <input type="text" class="form-control" placeholder="Search courses..." style="max-width: 250px;">
+        <button class="btn btn-warning"><i class="bi bi-search"></i></button>
+      </div>
+    </div>
+
+    <!-- Courses Grid -->
+    <div class="row g-4">
+      <!-- Course Card 1 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card course-card shadow-sm h-100">
+          <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=800&q=60" class="course-image" alt="Course Image">
+          <div class="card-body">
+            <h5 class="card-title text-dark fw-bold">Web Development Bootcamp</h5>
+            <p class="text-secondary small mb-2">Instructor: <strong>John Smith</strong></p>
+            <div class="mb-2">
+              <small>Progress: 75%</small>
+              <div class="progress" style="height: 6px;">
+                <div class="progress-bar" role="progressbar" style="width: 75%;"></div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between mt-3">
+              <button class="btn btn-warning btn-sm"><i class="bi bi-play-circle"></i> Continue</button>
+              <button class="btn btn-outline-warning btn-sm"><i class="bi bi-info-circle"></i> Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course Card 2 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card course-card shadow-sm h-100">
+          <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=800&q=60" class="course-image" alt="Course Image">
+          <div class="card-body">
+            <h5 class="card-title text-dark fw-bold">Data Science with Python</h5>
+            <p class="text-secondary small mb-2">Instructor: <strong>Sarah Johnson</strong></p>
+            <div class="mb-2">
+              <small>Progress: 50%</small>
+              <div class="progress" style="height: 6px;">
+                <div class="progress-bar" role="progressbar" style="width: 50%;"></div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between mt-3">
+              <button class="btn btn-warning btn-sm"><i class="bi bi-play-circle"></i> Continue</button>
+              <button class="btn btn-outline-warning btn-sm"><i class="bi bi-info-circle"></i> Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course Card 3 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card course-card shadow-sm h-100">
+          <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=800&q=60" class="course-image" alt="Course Image">
+          <div class="card-body">
+            <h5 class="card-title text-dark fw-bold">UI/UX Design Fundamentals</h5>
+            <p class="text-secondary small mb-2">Instructor: <strong>Emily Carter</strong></p>
+            <div class="mb-2">
+              <small>Progress: 90%</small>
+              <div class="progress" style="height: 6px;">
+                <div class="progress-bar" role="progressbar" style="width: 90%;"></div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between mt-3">
+              <button class="btn btn-warning btn-sm"><i class="bi bi-play-circle"></i> Continue</button>
+              <button class="btn btn-outline-warning btn-sm"><i class="bi bi-info-circle"></i> Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course Card 4 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card course-card shadow-sm h-100">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=60" class="course-image" alt="Course Image">
+          <div class="card-body">
+            <h5 class="card-title text-dark fw-bold">Machine Learning Basics</h5>
+            <p class="text-secondary small mb-2">Instructor: <strong>David Lee</strong></p>
+            <div class="mb-2">
+              <small>Progress: 30%</small>
+              <div class="progress" style="height: 6px;">
+                <div class="progress-bar" role="progressbar" style="width: 30%;"></div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between mt-3">
+              <button class="btn btn-warning btn-sm"><i class="bi bi-play-circle"></i> Continue</button>
+              <button class="btn btn-outline-warning btn-sm"><i class="bi bi-info-circle"></i> Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course Card 5 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card course-card shadow-sm h-100">
+          <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=800&q=60" class="course-image" alt="Course Image">
+          <div class="card-body">
+            <h5 class="card-title text-dark fw-bold">Digital Marketing Mastery</h5>
+            <p class="text-secondary small mb-2">Instructor: <strong>Laura Brown</strong></p>
+            <div class="mb-2">
+              <small>Progress: 60%</small>
+              <div class="progress" style="height: 6px;">
+                <div class="progress-bar" role="progressbar" style="width: 60%;"></div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between mt-3">
+              <button class="btn btn-warning btn-sm"><i class="bi bi-play-circle"></i> Continue</button>
+              <button class="btn btn-outline-warning btn-sm"><i class="bi bi-info-circle"></i> Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course Card 6 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card course-card shadow-sm h-100">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=60" class="course-image" alt="Course Image">
+          <div class="card-body">
+            <h5 class="card-title text-dark fw-bold">Java Programming</h5>
+            <p class="text-secondary small mb-2">Instructor: <strong>Mark Wilson</strong></p>
+            <div class="mb-2">
+              <small>Progress: 40%</small>
+              <div class="progress" style="height: 6px;">
+                <div class="progress-bar" role="progressbar" style="width: 40%;"></div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between mt-3">
+              <button class="btn btn-warning btn-sm"><i class="bi bi-play-circle"></i> Continue</button>
+              <button class="btn btn-outline-warning btn-sm"><i class="bi bi-info-circle"></i> Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

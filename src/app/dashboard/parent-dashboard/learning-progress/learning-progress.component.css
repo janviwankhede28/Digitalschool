@@ -1,0 +1,62 @@
+.main-heading {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #000;
+  font-size: 2rem;
+}
+
+.subtext {
+  color: #333;
+  font-size: 1rem;
+}
+
+.child-profile-card {
+  border: 2px solid #FFD700;
+  border-radius: 15px;
+  background-color: #f8f9fa;
+}
+
+.child-img {
+  width: 120px;
+  height: 120px;
+}
+
+.child-name {
+  color: #004aad;
+  font-weight: 600;
+}
+
+.progress-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px;
+  transition: all 0.3s ease;
+  border-top: 5px solid #004aad;
+}
+
+.progress-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.icon-box {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  border-radius: 50%;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-title {
+  color: #000;
+  font-weight: 600;
+}
+
+.progress-value {
+  color: #004aad;
+  font-size: 1.2rem;
+  font-weight: 700;
+}

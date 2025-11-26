@@ -1,0 +1,28 @@
+/* Basic responsive tweaks */
+.clickable-card { cursor: pointer; transition: transform .12s ease, box-shadow .12s ease; }
+.clickable-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+
+
+.detail-drawer {
+position: fixed;
+right: 16px;
+bottom: 16px;
+z-index: 1050;
+max-width: 360px;
+width: calc(100% - 32px);
+}
+.drawer-card {
+background: #fff;
+border-radius: 12px;
+padding: 16px;
+box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+
+@media (max-width: 576px) {
+.drawer-card { width: 100%; border-radius: 8px; }
+}
+
+
+/* small helper spacing */
+.d-flex .gap-2 { gap: .5rem; }

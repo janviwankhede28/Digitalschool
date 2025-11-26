@@ -1,0 +1,116 @@
+/* ============================
+   GLOBAL TABLE & CARD STYLING
+===============================*/
+.card {
+  border-radius: 12px !important;
+}
+
+.table {
+  min-width: 900px; /* Prevent table breaking */
+  font-size: 14px;
+}
+
+/* Wrapper scroll for mobile */
+.table-responsive {
+  overflow-x: auto;
+}
+
+/* Buttons */
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 13px;
+  border-radius: 8px;
+}
+
+/* Action Column */
+td.d-flex {
+  gap: 8px;
+}
+
+/* ============================
+   MODAL RESPONSIVE FIXES
+===============================*/
+.modal {
+  display: block !important;
+}
+
+.modal-backdrop {
+  display: none !important;
+}
+
+/* Modal full width on small screens */
+.modal-dialog {
+  max-width: 500px;
+  width: 100%;
+}
+
+@media (max-width: 576px) {
+  .modal-dialog {
+    margin: 20px;
+  }
+
+  .modal-content {
+    border-radius: 10px;
+  }
+
+  .modal-body .form-control {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* ============================
+   RESPONSIVE TABLE & BUTTONS
+===============================*/
+
+/* Smaller screens */
+@media (max-width: 768px) {
+
+  /* Scrollable table */
+  .table-responsive {
+    border-radius: 10px;
+    overflow-x: auto;
+  }
+
+  /* Action buttons stacked */
+  td.d-flex {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  /* Buttons full width */
+  .btn-sm {
+    width: 100%;
+  }
+
+  /* Reduce heading size */
+  h3 {
+    font-size: 20px;
+  }
+
+  /* Create Timetable button shrink */
+  .btn-warning {
+    padding: 6px 12px !important;
+    font-size: 14px;
+  }
+}
+
+/* Extra small mobile (<= 480px) */
+@media (max-width: 480px) {
+
+  h3 {
+    font-size: 18px;
+  }
+
+  .btn-warning {
+    font-size: 13px;
+  }
+
+  .table {
+    font-size: 12px;
+  }
+
+  td, th {
+    padding: 6px !important;
+  }
+}

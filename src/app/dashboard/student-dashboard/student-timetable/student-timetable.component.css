@@ -1,0 +1,30 @@
+/* Stop text from breaking awkwardly */
+.table th, .table td {
+  white-space: nowrap;
+}
+
+/* On mobile, allow scroll */
+.table-responsive {
+  overflow-x: auto;
+}
+
+/* Smaller padding & font on mobile */
+@media (max-width: 576px) {
+  .timetable-table th,
+  .timetable-table td {
+    padding: 8px 6px;
+    font-size: 13px;
+  }
+
+  .btn-sm {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+}
+
+/* Smooth hover animation */
+.table-hover tbody tr:hover {
+  background-color: #fff8e1;
+  transition: 0.3s ease;
+  transform: scale(1.01);
+}

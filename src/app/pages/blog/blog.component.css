@@ -1,0 +1,84 @@
+/* ===== Hero Section ===== */
+.blog-hero {
+  position: relative;
+  width: 100%;
+  height: 550px;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(60%);
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.text-yellow {
+  color: #FFD700;
+}
+
+.text-blue {
+  color: #007BFF;
+}
+
+.text-black {
+  color: #fff; /* visible on dark overlay */
+}
+
+/* ===== Blog Cards ===== */
+.blog-card {
+  border-radius: 15px;
+  transition: all 0.3s ease-in-out;
+  background-color: #fff;
+}
+
+.blog-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  height: 220px;
+  object-fit: cover;
+}
+
+.btn-outline-primary {
+  border-color: #007BFF;
+  color: #007BFF;
+  transition: 0.3s;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007BFF;
+  color: #fff;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .blog-hero {
+    height: 300px;
+  }
+}

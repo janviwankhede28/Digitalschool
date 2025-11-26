@@ -1,0 +1,70 @@
+<div class="container mt-4">
+
+  <h3 class="text-blue mb-3">Subject Management</h3>
+
+  <!-- Inline Form -->
+  <div class="card p-3 mb-4 shadow-sm border-0">
+    <div class="row g-3 align-items-end">
+
+      <div class="col-md-3">
+        <label class="form-label text-black">Subject Name</label>
+        <input type="text" class="form-control input-yellow" [(ngModel)]="newSubject.name" name="name">
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label text-black">Subject Code</label>
+        <input type="text" class="form-control input-yellow" [(ngModel)]="newSubject.code" name="code">
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label text-black">Description</label>
+        <input type="text" class="form-control input-yellow" [(ngModel)]="newSubject.description" name="description">
+      </div>
+
+      <div class="col-md-2 d-flex">
+        <button class="btn btn-blue me-2" (click)="addSubject()">
+          {{ isEditMode ? 'Update' : 'Add' }}
+        </button>
+        <button *ngIf="isEditMode" class="btn btn-black" (click)="cancelEdit()">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Subject Table -->
+  <div class="card shadow-sm border-0">
+    <div class="card-header text-white fw-bold table-heading bg-black">
+      Subject List
+    </div>
+    <div class="table-responsive">
+      <table class="table table-hover align-middle text-center mb-0">
+        <thead class="table-dark text-yellow">
+          <tr>
+            <th>#</th>
+            <th>Subject Name</th>
+            <th>Code</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let subject of subjects; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td><strong>{{ subject.name }}</strong></td>
+            <td>{{ subject.code }}</td>
+            <td>{{ subject.description }}</td>
+            <td>
+              <button class="btn btn-sm btn-outline-warning me-1" (click)="editSubject(subject, i)">
+                <i class="bi bi-pencil"></i>
+              </button>
+              <button class="btn btn-sm btn-outline-danger" (click)="deleteSubject(i)">
+                <i class="bi bi-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

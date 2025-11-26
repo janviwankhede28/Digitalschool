@@ -1,0 +1,5 @@
+.bg-light {
+  background: linear-gradient(135deg, #fff6d4 0%, #fef9e7 50%, #ffffff 100%);
+  min-height: 100vh;
+  padding: 20px;
+}

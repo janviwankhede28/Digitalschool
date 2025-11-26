@@ -1,0 +1,126 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-warning ">
+
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold fs-4" href="#">
+      <i class="bi bi-mortarboard-fill me-2"></i>Digital School
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link position-relative" href="#" id="notificationDropdown" role="button"
+            data-bs-toggle="dropdown">
+            <i class="bi bi-bell-fill fs-5 text-light"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              3
+            </span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end shadow">
+            <li>
+              <h6 class="dropdown-header">Notifications</h6>
+            </li>
+            <li><a class="dropdown-item" href="#">New assignment posted</a></li>
+            <li><a class="dropdown-item" href="#">Meeting reminder</a></li>
+            <li><a class="dropdown-item" href="#">Grade updated</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="bi bi-gear-fill fs-5 text-light"></i></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle fw-semibold" href="#" id="userDropdown" role="button"
+            data-bs-toggle="dropdown">
+            <i class="bi bi-person-circle me-1 fs-5 text-light"></i>Triveni
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end shadow">
+            <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Profile</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-md-2 bg-white min-vh-100 shadow-sm p-0">
+  <div class="list-group list-group-flush rounded-0">
+
+    <a
+      routerLink="/parent"
+      routerLinkActive="bg-warning text-dark fw-bold active-link"
+      [routerLinkActiveOptions]="{exact: false}"
+      class="list-group-item list-group-item-action border-0 mb-1 py-3 d-flex align-items-center"
+    >
+      <i class="bi bi-speedometer2 me-2"></i> Dashboard
+    </a>
+
+    <a
+      routerLink="/parent/learning-progress"
+      routerLinkActive="bg-warning text-dark fw-bold active-link"
+      class="list-group-item list-group-item-action border-0 mb-1 py-3 d-flex align-items-center"
+    >
+      <i class="bi bi-book me-2"></i> Child Learning Progress
+    </a>
+
+    <a
+      routerLink="/parent/attendence"
+      routerLinkActive="bg-warning text-dark fw-bold active-link"
+      class="list-group-item list-group-item-action border-0 mb-1 py-3 d-flex align-items-center"
+    >
+      <i class="bi bi-people me-2"></i> Attendance
+    </a>
+
+    <a
+      routerLink="/parent/fee-reminders"
+      routerLinkActive="bg-warning text-dark fw-bold active-link"
+      class="list-group-item list-group-item-action border-0 mb-1 py-3 d-flex align-items-center"
+    >
+      <i class="bi bi-calendar-check me-2"></i>Fee reminders
+    </a>
+
+    <a
+      routerLink="/parent/school-circulars"
+      routerLinkActive="bg-warning text-dark fw-bold active-link"
+      class="list-group-item list-group-item-action border-0 mb-1 py-3 d-flex align-items-center"
+    >
+      <i class="bi bi-file-earmark-text me-2"></i> school Circulars
+    </a>
+
+    <a
+  routerLink="/parent/timetable"
+  routerLinkActive="bg-warning text-dark fw-bold active-link"
+  class="list-group-item list-group-item-action border-0 mb-1 py-3 d-flex align-items-center"
+>
+  <i class="bi bi-calendar-week me-2 fs-5"></i>Timetable
+</a>
+
+ <!-- <-- <a
+      routerLink="/student/assignment"
+      routerLinkActive="bg-warning text-dark fw-bold active-link"
+      class="list-group-item list-group-item-action border-0 mb-1 py-3 d-flex align-items-center"
+    >
+      <i class="bi bi-graph-up me-2"></i> Submit-Assignment
+    </a> -->
+
+  </div>
+</nav>
+
+
+
+    <main class="col-md-10  ">
+      <!-- Where child pages render -->
+      <div class="card border-0 m-1">
+        <div class="card-body">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </main>
+
+  </div>
+</div>
+<app-chatboat></app-chatboat>

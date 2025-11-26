@@ -1,0 +1,88 @@
+/* Ensure full height for proper footer placement */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Content wrapper */
+.campus-tour-section,
+.campus-gallery-section {
+  flex: 1;
+}
+
+/* Footer fixed at bottom */
+.footer-fixed {
+  margin-top: auto;
+  width: 100%;
+}
+
+/* Background gradients */
+.campus-tour-section {
+  padding-top: 120px !important;
+  background: linear-gradient(135deg, #f9fcff, #eef6ff);
+}
+
+.campus-gallery-section {
+  background: linear-gradient(135deg, #e0f7fa, #f1f8e9, #fffde7);
+}
+
+/* Highlight cards */
+.highlight-card {
+  transition: all 0.3s ease-in-out;
+  background: #fff;
+}
+.highlight-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Text styles */
+h2, h3 {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Images */
+img {
+  border: 4px solid #fff;
+  transition: transform 0.3s ease;
+}
+img:hover {
+  transform: scale(1.05);
+}
+
+/* Gallery hover effect */
+.gallery-item img {
+  transition: transform 0.5s ease, filter 0.4s ease;
+  border-radius: 1rem;
+}
+.gallery-item:hover img {
+  transform: scale(1.1);
+  filter: brightness(70%);
+}
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: all 0.4s ease;
+  text-align: center;
+}
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+.gallery-overlay h5 {
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 767px) {
+  .gallery-overlay h5 {
+    font-size: 1rem;
+  }
+}

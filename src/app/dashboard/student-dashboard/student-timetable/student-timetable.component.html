@@ -1,0 +1,48 @@
+<div class="container mt-4">
+
+  <h3 class="fw-bold mb-3 text-center text-md-start">My Timetable</h3>
+
+  <div class="card shadow-sm p-3">
+
+    <!-- Responsive Scroll Wrapper -->
+    <div class="table-responsive">
+      <table class="table table-bordered text-center table-hover align-middle timetable-table">
+        <thead class="table-warning">
+          <tr>
+            <th>No.</th>
+            <th>Day</th>
+            <th>Subject</th>
+            <th>Teacher</th>
+            <th>Time</th>
+            <th>Join Class</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let t of timetable; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ t.dayOfWeek }}</td>
+            <td>{{ t.subject }}</td>
+            <td>{{ t.teacher }}</td>
+            <td>{{ t.startTime }} - {{ t.endTime }}</td>
+
+            <td>
+  <a *ngIf="showJoinButton && t.meetingLink"
+     class="btn btn-primary btn-sm px-3"
+     target="_blank"
+     [href]="t.meetingLink">
+    Join
+  </a>
+
+  <span *ngIf="!showJoinButton">-</span>
+</td>
+
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+
+  </div>
+
+</div>

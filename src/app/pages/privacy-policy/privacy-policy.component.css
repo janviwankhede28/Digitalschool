@@ -1,0 +1,62 @@
+/* Import modern font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Background gradient similar to Terms page */
+.privacy-container {
+   background: linear-gradient(135deg, #dee1e4 0%, #ffc107 100%);
+  min-height: 100vh;
+  color: #fff; /* All text white */
+  font-family: 'Poppins', sans-serif;
+  padding: 60px 0;
+}
+
+/* Headings */
+.privacy-container h1 {
+  font-weight: 700;
+  color: #080707;
+  letter-spacing: 0.5px;
+}
+
+.privacy-content h4 {
+  font-weight: 600;
+  color: #0e0c0c;
+  margin-top: 1.5rem;
+}
+
+/* Paragraphs */
+.privacy-content p,
+.intro-text {
+  line-height: 1.8;
+  font-size: 1rem;
+  color: #060606;
+}
+
+/* Links */
+a.text-primary {
+  color: #003d99 !important;
+}
+
+a.text-primary:hover {
+  text-decoration: underline;
+}
+
+/* Button styling */
+.btn-dark {
+  background-color: #212529;
+  color: #fff;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-dark:hover {
+  background-color: #000;
+  transform: translateY(-3px);
+}
+
+/* Remove background box */
+.container {
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 20px;
+}

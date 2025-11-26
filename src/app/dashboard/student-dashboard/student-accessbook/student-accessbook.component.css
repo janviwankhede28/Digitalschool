@@ -1,0 +1,52 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.book-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.book-img {
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.book-title {
+  font-weight: 600;
+  color: #212529;
+}
+
+.book-author {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+}
+
+.search-bar {
+  max-width: 400px;
+}
+
+@media (max-width: 576px) {
+  .book-img {
+    height: 200px;
+  }
+}

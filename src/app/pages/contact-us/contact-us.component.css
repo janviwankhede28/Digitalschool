@@ -1,0 +1,32 @@
+/* Banner Styles */
+.banner-img {
+  max-height: 550px;
+  object-fit: cover;
+  filter: brightness(70%);
+}
+
+.banner-heading {
+  font-size: 3rem;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Form Section */
+.form-label {
+  font-weight: 600;
+}
+
+.btn-warning {
+  background-color: #ffb703;
+  border: none;
+}
+
+.btn-warning:hover {
+  background-color: #f48c06;
+}
+
+/* Contact Info */
+ul li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}

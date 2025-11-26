@@ -1,0 +1,27 @@
+<div class="container py-5">
+  <h3 class="mb-4 text-center">School Circulars</h3>
+
+  <div class="row g-4">
+    <div *ngFor="let circular of circulars" class="col-md-6 col-lg-4">
+      <div class="card shadow-sm h-100 rounded-4 border-0 bg-warning">
+        <div class="card-body d-flex flex-column">
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <span class="badge bg-dark">{{ circular.date | date:'dd MMM yyyy' }}</span>
+            <span *ngIf="circular.downloadUrl" class="ms-auto">
+              <a [href]="circular.downloadUrl" target="_blank" class="btn btn-sm btn-outline-dark">
+                Download
+              </a>
+            </span>
+          </div>
+
+          <h5 class="card-title mb-2">{{ circular.title }}</h5>
+          <p class="card-text flex-grow-1 text-truncate" [title]="circular.description">
+            {{ circular.description }}
+          </p>
+
+          <small class="text-dark mt-auto">Posted by: {{ circular.postedBy }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

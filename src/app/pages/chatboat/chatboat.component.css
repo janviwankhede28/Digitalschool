@@ -1,0 +1,86 @@
+/* Floating chat icon */
+.chat-icon {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: linear-gradient(135deg, #ffeb3b, #ffc107);
+  color: #000;
+  border-radius: 50%;
+  padding: 14px 16px;
+  cursor: pointer;
+  font-size: 28px;
+  z-index: 2000; /* ✅ Ensures it's clickable */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+ 
+.chat-icon:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 25px #ffd740;
+}
+ 
+/* Chatbox container */
+.chat-container {
+  position: fixed;
+  bottom: 85px;
+  right: 25px;
+  width: 340px;
+  border-radius: 15px;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  background: rgba(33, 37, 41, 0.95);
+  z-index: 1999; /* ✅ Keeps it above other elements */
+  animation: fadeInUp 0.4s ease-out;
+}
+ 
+/* Header */
+.chat-header {
+  background: #212529;
+  color: #ffc107;
+  font-size: 1.1rem;
+  border-bottom: 2px solid #ffc107;
+}
+ 
+/* Body */
+.chat-body {
+  height: 260px;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px;
+}
+ 
+/* Message styles */
+.user-msg {
+  background: linear-gradient(135deg, #ffc107, #ffca28);
+  color: #000;
+  border-radius: 20px 20px 0 20px;
+  box-shadow: 0 0 10px #ffeb3b;
+}
+ 
+.bot-msg {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border-radius: 20px 20px 20px 0;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+ 
+/* Scrollbar */
+.chat-body::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-body::-webkit-scrollbar-thumb {
+  background: #ffc107;
+  border-radius: 10px;
+}
+ 
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+ 

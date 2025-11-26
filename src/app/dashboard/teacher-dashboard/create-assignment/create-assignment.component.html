@@ -1,0 +1,112 @@
+<div class="card bg-white h-100 shadow-sm">
+  <div class="card-header bg-white border-bottom">
+    <h5 class="mb-0 text-dark fw-bold">
+      <i class="bi bi-file-earmark-text me-2 text-warning"></i>
+      Create Assignment
+    </h5>
+  </div>
+
+  <div class="card-body">
+    <!-- Assignment Form -->
+    <form (ngSubmit)="onSubmit()" #assignmentForm="ngForm">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold text-secondary">Title</label>
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            placeholder="Enter assignment title"
+            name="title"
+            [(ngModel)]="form.title"
+            required
+          />
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold text-secondary">Subject</label>
+          <select
+            class="form-select form-select-sm"
+            name="subject"
+            [(ngModel)]="form.subject"
+            required
+          >
+            <option value="">Select Subject</option>
+            <option *ngFor="let s of subjects">{{ s }}</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold text-secondary">Class</label>
+          <select
+            class="form-select form-select-sm"
+            name="classroom"
+            [(ngModel)]="form.classroom"
+            required
+          >
+            <option value="">Select Class</option>
+            <option *ngFor="let c of classes">{{ c }}</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label small fw-semibold text-secondary">Due Date</label>
+          <input
+            type="date"
+            class="form-control form-control-sm"
+            name="dueDate"
+            [(ngModel)]="form.dueDate"
+            required
+          />
+        </div>
+
+        <div class="col-12">
+          <label class="form-label small fw-semibold text-secondary">Description</label>
+          <textarea
+            rows="4"
+            class="form-control form-control-sm"
+            placeholder="Enter description..."
+            name="desc"
+            [(ngModel)]="form.desc"
+          ></textarea>
+        </div>
+
+        <div class="col-12">
+          <label class="form-label small fw-semibold text-secondary">Upload File (optional)</label>
+          <input type="file" class="form-control form-control-sm" (change)="onFileSelect($event)" />
+        </div>
+
+        <div class="col-12 text-end">
+          <button class="btn btn-sm btn-outline-secondary me-2" type="button" (click)="resetForm()">
+            Reset
+          </button>
+          <button class="btn btn-sm btn-warning" [disabled]="!assignmentForm.form.valid">
+            Create Assignment
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Divider -->
+    <hr class="my-4" />
+
+    <!-- Assignment List -->
+    <h6 class="fw-bold text-secondary mb-3">
+      <i class="bi bi-list-task text-warning me-1"></i>Recent Assignments
+    </h6>
+
+    <div class="list-group list-group-flush">
+      <div
+        class="list-group-item bg-white rounded border-0 p-3 shadow-sm mb-2 d-flex justify-content-between align-items-center"
+        *ngFor="let a of assignments"
+      >
+        <div>
+          <h6 class="text-dark fw-semibold mb-1">{{ a.title }}</h6>
+          <small class="text-secondary">
+            {{ a.subject }} • Class {{ a.classroom }} • Due: {{ a.dueDate | date: 'mediumDate' }}
+          </small>
+        </div>
+        <span class="badge bg-warning text-dark">Active</span>
+      </div>
+    </div>
+  </div>
+</div>

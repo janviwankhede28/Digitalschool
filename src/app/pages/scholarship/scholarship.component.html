@@ -1,0 +1,128 @@
+<!-- Add container with Bootstrap classes and a little animation classes -->
+  <app-navbar></app-navbar> 
+
+<div class="container my-5">
+  <div class="row align-items-center mb-4">
+    <div class="col-md-6">
+      <h1 class="display-6 fw-bold animate-fadein">Scholarships & Grants</h1>
+      <p class="lead text-muted animate-slideup">Find scholarships, apply online — specially curated for rural & school students.</p>
+      <div class="input-group mb-3 animate-pop">
+        <input class="form-control" placeholder="Search scholarships (title, amount, desc)..."
+               [(ngModel)]="searchText" />
+        <button class="btn btn-primary" type="button" (click)="$event.preventDefault()">Search</button>
+      </div>
+    </div>
+    <div class="col-md-6 text-center animate-float">
+      <!-- carousel using Bootstrap -->
+      <div id="scholarshipCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner rounded shadow-sm">
+          <div *ngFor="let s of scholarships; let i = index" [class]="i===0 ? 'carousel-item active' : 'carousel-item'">
+            <img [src]="s.img" class="d-block w-100 carousel-img" [alt]="s.title" />
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-2">
+              <h5>{{ s.title }}</h5>
+              <p class="mb-0">{{ s.amount }} • Deadline: {{ s.deadline }}</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#scholarshipCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#scholarshipCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scholarship cards -->
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let s of filtered()">
+      <div class="card h-100 scholarship-card animate-card">
+        <img [src]="s.img" class="card-img-top card-img" [alt]="s.title">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ s.title }}</h5>
+          <p class="card-text text-muted small mb-2">{{ s.desc }}</p>
+          <div class="mt-auto">
+            <p class="mb-1"><strong>{{ s.amount }}</strong></p>
+            <p class="mb-2 small">Deadline: <span class="text-danger">{{ s.deadline }}</span></p>
+            <div class="d-flex gap-2">
+              <button class="btn btn-sm btn-outline-primary w-100" (click)="openApply(s.id)">Apply Now</button>
+              <button class="btn btn-sm btn-outline-secondary w-100" type="button"
+                      data-bs-toggle="collapse" [attr.data-bs-target]="'#info' + s.id">More</button>
+            </div>
+            <div [id]="'info' + s.id" class="collapse mt-2">
+              <div class="small text-muted">This scholarship supports students from under-served regions. Documents required: mark sheet, domicile, ID.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Apply form -->
+  <div class="row mt-5">
+    <div class="col-lg-8 mx-auto">
+      <div class="card p-4 shadow-sm" id="apply-form">
+        <h4 class="mb-3">Apply Online</h4>
+
+        <div *ngIf="appliedSuccess" class="alert alert-success animate-alert">
+          {{ appliedSuccess }}
+        </div>
+
+        <form (ngSubmit)="submitApplication()" [formGroup]="applyForm" novalidate>
+          <div class="mb-3">
+            <label class="form-label">Choose Scholarship</label>
+            <select class="form-select" formControlName="scholarshipId">
+              <option [ngValue]="null">-- Select --</option>
+              <option *ngFor="let s of scholarships" [ngValue]="s.id">{{ s.title }} — {{ s.amount }}</option>
+            </select>
+            <div *ngIf="applyForm.controls['scholarshipId'].touched && applyForm.controls['scholarshipId'].invalid" class="text-danger small mt-1">
+              Please select a scholarship.
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Full name</label>
+              <input type="text" formControlName="name" class="form-control" placeholder="Your full name">
+              <div *ngIf="applyForm.controls['name'].touched && applyForm.controls['name'].invalid" class="text-danger small mt-1">
+                Name is required (min 3 chars).
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Email</label>
+              <input type="email" formControlName="email" class="form-control" placeholder="you@example.com">
+              <div *ngIf="applyForm.controls['email'].touched && applyForm.controls['email'].invalid" class="text-danger small mt-1">
+                Valid email required.
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Mobile</label>
+            <input type="tel" formControlName="mobile" class="form-control" placeholder="10-digit mobile">
+            <div *ngIf="applyForm.controls['mobile'].touched && applyForm.controls['mobile'].invalid" class="text-danger small mt-1">
+              Enter 10 digit mobile number.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Note (optional)</label>
+            <textarea class="form-control" formControlName="note" rows="3" placeholder="Short note / reason"></textarea>
+          </div>
+
+          <div class="d-flex gap-2">
+            <button class="btn btn-success" type="submit">Submit Application</button>
+            <button class="btn btn-outline-secondary" type="button" (click)="applyForm.reset()">Reset</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- small footer -->
+  <div class="text-center text-muted mt-4 small">
+    <span>Need help? Contact supportyourorg.org • Documents required: mark sheet, domicile certificate.</span>
+  </div>
+</div>
+<app-footer></app-footer>

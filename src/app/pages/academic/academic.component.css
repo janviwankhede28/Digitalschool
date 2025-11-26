@@ -1,0 +1,50 @@
+.carousel-img {
+  height: 480px;
+  object-fit: cover;
+  filter: brightness(0.8);
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  padding: 15px 25px;
+}
+
+.text-shadow {
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.8);
+}
+
+.hover-card {
+  transition: all 0.3s ease;
+  border-radius: 18px;
+}
+.hover-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.video-card iframe {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.timetable-section table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.chat-section {
+  background: linear-gradient(135deg, #dba634, #252525);
+}
+
+.achievements-section img {
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+}

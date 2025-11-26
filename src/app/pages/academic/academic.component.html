@@ -1,0 +1,183 @@
+<!-- Academic Page -->
+ <app-navbar></app-navbar>
+<div class="container-fluid p-0">
+
+  <!-- ====== Carousel Section ====== -->
+  <div id="academicCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button *ngFor="let img of carouselImages; let i = index"
+        type="button"
+        [attr.data-bs-target]="'#academicCarousel'"
+        [attr.data-bs-slide-to]="i"
+        [class.active]="i === 0">
+      </button>
+    </div>
+
+    <div class="carousel-inner">
+      <div class="carousel-item" *ngFor="let item of carouselImages; let i = index" [class.active]="i === 0">
+        <img [src]="item.img" class="d-block w-100 carousel-img" [alt]="item.title">
+        <div class="carousel-caption d-none d-md-block">
+          <h2 class="fw-bold text-shadow">{{ item.title }}</h2>
+          <p>{{ item.desc }}</p>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#academicCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#academicCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <!-- ====== Academic Overview ====== -->
+  <section class="bg-light py-5 text-center">
+    <div class="container">
+      <h2 class="fw-bold text-primary mb-3">🎓 Academic Overview</h2>
+      <p class="text-muted col-md-8 mx-auto">
+        The Digital School Academic System integrates smart tools for learning, evaluation, and engagement.
+        From interactive e-books to gamified lessons and AI-based insights — everything is designed for
+        next-generation education.
+      </p>
+    </div>
+  </section>
+
+  <!-- ====== Academic Cards ====== -->
+  <div class="container my-5">
+    <h2 class="text-center fw-bold mb-4 text-primary">📘 Academic Zone</h2>
+    <p class="text-center text-muted mb-5">
+      Explore smart digital learning, interactive content, and student progress tools.
+    </p>
+
+    <div class="row g-4">
+      <div class="col-md-4" *ngFor="let item of academicItems">
+        <div class="card shadow-lg border-0 h-100 hover-card bg-white">
+          <img [src]="item.img" class="card-img-top rounded-top" [alt]="item.title">
+          <div class="card-body">
+            <h5 class="card-title text-primary fw-bold">
+              <i [class]="item.icon + ' me-2'"></i>{{ item.title }}
+            </h5>
+            <p class="card-text text-muted">{{ item.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== Timetable Preview ====== -->
+  <section class="timetable-section py-5">
+    <div class="container">
+      <h2 class="text-center fw-bold text-primary mb-4">📅 Timetable Preview</h2>
+      <img src="https://images.unsplash.com/photo-1553531888-a773bf8f5a49?auto=format&fit=crop&w=1200&q=80"
+        class="img-fluid rounded shadow mb-4" alt="Timetable Illustration">
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered text-center align-middle">
+          <thead class="table-primary">
+            <tr>
+              <th>Time</th>
+              <th>Monday</th>
+              <th>Tuesday</th>
+              <th>Wednesday</th>
+              <th>Thursday</th>
+              <th>Friday</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let slot of timetable">
+              <td>{{ slot.time }}</td>
+              <td>{{ slot.mon }}</td>
+              <td>{{ slot.tue }}</td>
+              <td>{{ slot.wed }}</td>
+              <td>{{ slot.thu }}</td>
+              <td>{{ slot.fri }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Video Learning Gallery ====== -->
+  <section class="video-gallery py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center fw-bold text-primary mb-4">🎥 Interactive Learning Gallery</h2>
+      <div class="row g-4">
+        <div class="col-md-4" *ngFor="let video of videos">
+          <div class="video-card shadow-sm rounded-4 overflow-hidden">
+            <div class="position-relative">
+              <img [src]="video.img" class="img-fluid w-100" [alt]="video.title" />
+              <button class="btn btn-danger position-absolute top-50 start-50 translate-middle rounded-circle"
+                style="width:60px; height:60px;" data-bs-toggle="modal" data-bs-target="#videoModal"
+                (click)="currentVideo = video.link">
+                <i class="bi bi-play-fill fs-3 text-white"></i>
+              </button>
+            </div>
+            <h6 class="text-center mt-3 text-dark fw-semibold">{{ video.title }}</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Modal -->
+  <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-dark">
+        <div class="modal-body p-0">
+          <iframe [src]="currentVideo" frameborder="0" allowfullscreen class="w-100" style="height:480px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== Gamified Learning ====== -->
+  <section class="py-5">
+    <div class="container text-center">
+      <h2 class="fw-bold text-primary mb-4">🏆 Gamified Learning</h2>
+      <p class="text-muted col-md-8 mx-auto mb-4">
+        Students earn points, badges, and certificates as they progress through subjects and activities.
+      </p>
+      <div class="row g-4">
+        <div class="col-md-3" *ngFor="let badge of badges">
+          <div class="p-4 bg-white shadow-sm rounded-4 badge-card">
+            <img [src]="badge.img" class="img-fluid mb-2" [alt]="badge.name">
+            <h6 class="fw-bold text-dark">{{ badge.name }}</h6>
+            <p class="small text-muted">{{ badge.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Chat & Support ====== -->
+  <section class="chat-section py-5 bg-primary text-white text-center">
+    <div class="container">
+      <h2 class="fw-bold mb-3">💬 24/7 Academic Support</h2>
+      <p class="col-md-8 mx-auto">
+        Students can ask academic questions anytime using the AI Chatbot or connect with teachers directly.
+      </p>
+      <img src="https://plus.unsplash.com/premium_photo-1677094310893-0d6594c211ea?auto=format&fit=crop&w=1000&q=80"
+        class="img-fluid rounded shadow mb-3" alt="Chat Support">
+      <br />
+      <button class="btn btn-light btn-lg fw-bold">Start Chat</button>
+    </div>
+  </section>
+
+  <!-- ====== Achievements Section ====== -->
+  <section class="achievements-section py-5 bg-light">
+    <div class="container text-center">
+      <h2 class="fw-bold text-primary mb-4">🏅 Recent Achievements</h2>
+      <div class="row g-4">
+        <div class="col-md-3" *ngFor="let achievement of achievements">
+          <div class="p-3 bg-white shadow rounded-4">
+            <img [src]="achievement.img" class="img-fluid rounded-3 mb-2" [alt]="achievement.title">
+            <h6 class="fw-bold">{{ achievement.title }}</h6>
+            <p class="small text-muted">{{ achievement.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<app-footer></app-footer>

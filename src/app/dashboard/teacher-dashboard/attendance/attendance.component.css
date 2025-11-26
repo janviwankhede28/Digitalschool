@@ -1,0 +1,23 @@
+.card {
+  border: 2px solid #ffc10720;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #fff8e1 !important;
+}
+
+label.small {
+  font-weight: 500;
+}
+
+.btn-warning {
+  font-weight: 500;
+}
+
+.text-success {
+  font-weight: 600;
+}
+
+.text-danger {
+  font-weight: 600;
+}

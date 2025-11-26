@@ -1,0 +1,35 @@
+<!-- ===== Hero Section ===== -->
+ <app-navbar></app-navbar>
+<section class="blog-hero position-relative">
+  <img src="assets/blog.jpg" alt="Blog Hero" class="hero-img img-fluid w-100">
+
+  <div class="hero-overlay d-flex flex-column justify-content-center align-items-center">
+    <h1 class="hero-title">
+      <span class="text-yellow">Our</span>
+      <span class="text-blue">Blog</span>
+      <span class="text-black">Posts</span>
+    </h1>
+    <p class="text-light mt-2">Explore the latest updates, insights, and stories in education and learning.</p>
+  </div>
+</section>
+
+<!-- ===== Blog Cards Section ===== -->
+<section class="container py-5">
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let post of blogPosts">
+      <div class="card blog-card shadow-lg border-0 h-100">
+        <img [src]="post.image" class="card-img-top" alt="blog image">
+        <div class="card-body">
+          <h5 class="card-title text-dark fw-bold">{{ post.title }}</h5>
+          <p class="text-muted small mb-1"><i class="bi bi-person"></i> {{ post.author }}</p>
+          <p class="text-muted small"><i class="bi bi-calendar"></i> {{ post.date }}</p>
+          <p class="card-text text-secondary">{{ post.content }}</p>
+        </div>
+        <div class="card-footer bg-transparent border-0 text-end">
+          <button class="btn btn-outline-primary btn-sm">Read More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

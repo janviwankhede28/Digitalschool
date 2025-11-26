@@ -1,0 +1,248 @@
+<app-navbar></app-navbar>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History | Digital School</title>
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f7fa;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ===== Hero Section ===== */
+    .history-hero {
+      background: linear-gradient(rgba(0, 20, 70, 0.7), rgba(0, 20, 70, 0.8)),
+      url('https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: white;
+      padding: 120px 20px;
+      text-align: center;
+    }
+
+    .history-hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .history-hero p {
+      font-size: 1.1rem;
+      color: #ffeb3b;
+    }
+
+    /* ===== Timeline Section ===== */
+    .timeline {
+      position: relative;
+      margin: 80px auto;
+      padding: 20px 0;
+      width: 90%;
+      max-width: 1100px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(to bottom, #007bff, #00c4ff);
+      transform: translateX(-50%);
+      border-radius: 5px;
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 30px 40px;
+      box-sizing: border-box;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 35px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #ffcc00;
+      border: 5px solid #fff;
+      z-index: 2;
+      transition: transform 0.3s ease;
+    }
+
+    .timeline-item.left::before { right: -12px; }
+    .timeline-item.right::before { left: -12px; }
+
+    .timeline-item:hover::before {
+      transform: scale(1.3);
+      box-shadow: 0 0 15px #ffc107;
+    }
+
+    .timeline-item.left {
+      left: 0;
+      text-align: right;
+    }
+
+    .timeline-item.right {
+      left: 50%;
+    }
+
+    .timeline-item .card {
+      border: none;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s ease;
+    }
+
+    .timeline-item .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .timeline-item h5 {
+      color: #007bff;
+      font-weight: 700;
+    }
+
+    .timeline-item p {
+      color: #555;
+    }
+
+    /* ===== Glow Line Animation ===== */
+    @keyframes move-glow {
+      0% { top: 0; opacity: 0; }
+      50% { opacity: 1; }
+      100% { top: 100%; opacity: 0; }
+    }
+
+    .glow-line {
+      position: absolute;
+      left: 50%;
+      width: 8px;
+      height: 60px;
+      background: #ffcc00;
+      border-radius: 5px;
+      transform: translateX(-50%);
+      animation: move-glow 3s infinite linear;
+    }
+
+    /* ===== Responsive Design ===== */
+    @media (max-width: 992px) {
+      .history-hero h1 {
+        font-size: 2.5rem;
+      }
+      .history-hero p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .timeline::before {
+        left: 30px;
+      }
+
+      .timeline-item {
+        width: 100%;
+        padding: 20px 20px 20px 70px;
+        text-align: left !important;
+      }
+
+      .timeline-item.left,
+      .timeline-item.right {
+        left: 0;
+      }
+
+      .timeline-item.left::before,
+      .timeline-item.right::before {
+        left: 18px;
+        right: auto;
+      }
+
+      .timeline-item .card {
+        margin-bottom: 20px;
+      }
+
+      .glow-line {
+        left: 30px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .history-hero h1 {
+        font-size: 2rem;
+      }
+      .history-hero {
+        padding: 100px 15px;
+      }
+      .timeline-item {
+        padding: 15px 15px 15px 60px;
+      }
+      .timeline-item .card {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Hero Section ===== -->
+  <section class="history-hero animate__animated animate__fadeIn">
+    <div class="container">
+      <h1>Our Glorious History</h1>
+      <p>Tracing the roots and evolution of <strong>Digital School</strong></p>
+    </div>
+  </section>
+
+  <!-- ===== Timeline Section ===== -->
+  <section class="timeline-section position-relative">
+    <div class="timeline">
+
+      <div class="glow-line"></div>
+
+      <div class="timeline-item left animate__animated animate__fadeInLeft">
+        <div class="card p-4">
+          <h5>2010 - The Vision Begins</h5>
+          <p>Digital School started with a dream to revolutionize traditional education by introducing digital methods and innovative classroom solutions.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item right animate__animated animate__fadeInRight">
+        <div class="card p-4">
+          <h5>2015 - Expanding Our Reach</h5>
+          <p>Within just five years, Digital School reached new heights with multiple campuses and digital learning labs across cities.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item left animate__animated animate__fadeInLeft">
+        <div class="card p-4">
+          <h5>2020 - Digital Revolution</h5>
+          <p>Embracing online learning, we successfully transitioned into a hybrid model that connected teachers and students worldwide during the pandemic.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item right animate__animated animate__fadeInRight">
+        <div class="card p-4">
+          <h5>2025 - Shaping the Future</h5>
+          <p>Digital School now leads with AI-based education tools, immersive virtual classrooms, and a vision for empowering every student globally.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>
+<app-footer></app-footer>

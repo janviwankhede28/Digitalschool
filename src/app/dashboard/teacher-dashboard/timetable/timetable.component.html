@@ -1,0 +1,124 @@
+<div class="container mt-4">
+
+  <!-- Header -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h3 class="fw-bold m-0">Manage Timetable</h3>
+
+    <button class="btn btn-warning fw-semibold px-3" (click)="openModal()">
+      <i class="bi bi-plus-circle me-1"></i> Create Timetable
+    </button>
+  </div>
+
+  <!-- Timetable Table -->
+  <div class="card shadow p-3 border-0">
+
+    <!-- ⭐ ADD THIS WRAPPER FOR MOBILE RESPONSIVE -->
+    <div class="table-responsive">
+
+      <table class="table table-bordered table-hover align-middle text-center mb-0">
+
+        <thead class="table-warning">
+          <tr>
+            <th style="width: 50px;">No.</th>
+            <th>Day</th>
+            <th>Subject</th>
+            <th>Teacher</th>
+            <th>Time</th>
+            <th>Meeting Link</th>
+            <th style="width: 140px;">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let t of timetable; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ t.dayOfWeek }}</td>
+            <td>{{ t.subject }}</td>
+            <td>{{ t.teacher }}</td>
+            <td>{{ t.startTime }} - {{ t.endTime }}</td>
+
+            <td>
+              <a 
+                *ngIf="t.meetingLink"
+                class="btn btn-sm btn-primary px-3"
+                target="_blank"
+                [href]="t.meetingLink">
+                Join
+              </a>
+            </td>
+
+            <td class="d-flex justify-content-center gap-2">
+              <button class="btn btn-sm btn-warning" (click)="editRow(i)">
+                Edit
+              </button>
+              <button class="btn btn-sm btn-danger" (click)="deleteRow(i)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div> 
+    <!-- ⭐ END RESPONSIVE WRAPPER -->
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade show d-block" *ngIf="showModal" style="background: rgba(0,0,0,0.5);">
+  <div class="modal-dialog">
+    <div class="modal-content border-0">
+
+      <div class="modal-header bg-warning">
+        <h5 class="modal-title fw-bold text-dark">Create Timetable</h5>
+        <button class="btn-close" (click)="closeModal()"></button>
+      </div>
+
+      <div class="modal-body">
+        <form [formGroup]="form" class="row g-3">
+
+          <div class="col-12">
+            <label class="fw-semibold">Day</label>
+            <select class="form-control" formControlName="dayOfWeek">
+              <option *ngFor="let d of days" [value]="d">{{ d }}</option>
+            </select>
+          </div>
+
+          <div class="col-12">
+            <label class="fw-semibold">Subject</label>
+            <input class="form-control" formControlName="subject">
+          </div>
+
+          <div class="col-12">
+            <label class="fw-semibold">Teacher</label>
+            <input class="form-control" formControlName="teacher">
+          </div>
+
+          <div class="col-6">
+            <label class="fw-semibold">Start Time</label>
+            <input type="time" class="form-control" formControlName="startTime">
+          </div>
+
+          <div class="col-6">
+            <label class="fw-semibold">End Time</label>
+            <input type="time" class="form-control" formControlName="endTime">
+          </div>
+
+          <div class="col-12">
+            <label class="fw-semibold">Meeting Link (optional)</label>
+            <input class="form-control" formControlName="meetingLink">
+          </div>
+
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary px-3" (click)="closeModal()">Cancel</button>
+        <button class="btn btn-warning fw-semibold px-3" (click)="submit()">Save</button>
+      </div>
+
+    </div>
+  </div>
+</div>

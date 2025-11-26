@@ -1,0 +1,145 @@
+<div class="container my-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="fw-bold text-warning">
+      <i class="bi bi-journal-bookmark-fill me-2"></i> Exam Planner
+    </h2>
+    <button class="btn btn-warning text-white fw-semibold" (click)="openAddExamModal()">
+      <i class="bi bi-plus-circle me-2"></i> Add Exam
+    </button>
+  </div>
+
+  <div class="card shadow-sm rounded-4">
+    <div class="card-body p-0">
+      <table class="table table-bordered table-hover m-0">
+        <thead class="bg-warning bg-opacity-25">
+          <tr>
+            <th>#</th>
+            <th>Exam Name</th>
+            <th>Subject</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Duration</th>
+            <th>Class</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let exam of exams; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td><strong>{{ exam.name }}</strong></td>
+            <td>{{ exam.subject }}</td>
+            <td>{{ exam.date }}</td>
+            <td>{{ exam.time }}</td>
+            <td>{{ exam.duration }}</td>
+            <td>{{ exam.class }}</td>
+            <td>
+              <button
+                class="btn btn-outline-primary btn-sm me-2"
+                (click)="openEditExamModal(exam, i)"
+              >
+                <i class="bi bi-pencil"></i>
+              </button>
+              <button
+                class="btn btn-outline-danger btn-sm"
+                (click)="deleteExam(i)"
+              >
+                <i class="bi bi-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div
+    class="modal fade show"
+    tabindex="-1"
+    role="dialog"
+    style="display: block;"
+    *ngIf="showExamModal"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-3">
+        <div class="modal-header border-0">
+          <h5 class="modal-title fw-bold">
+            {{ isEditMode ? 'Edit Exam' : 'Add New Exam' }}
+          </h5>
+          <button type="button" class="btn-close" (click)="closeExamModal()"></button>
+        </div>
+
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Exam Name</label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="newExam.name"
+                name="name"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Subject</label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="newExam.subject"
+                name="subject"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Date</label>
+              <input
+                type="date"
+                class="form-control"
+                [(ngModel)]="newExam.date"
+                name="date"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Time</label>
+              <input
+                type="time"
+                class="form-control"
+                [(ngModel)]="newExam.time"
+                name="time"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Duration</label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="newExam.duration"
+                name="duration"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Class</label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="newExam.class"
+                name="class"
+              />
+            </div>
+          </form>
+        </div>
+
+        <div class="modal-footer border-0">
+          <button class="btn btn-secondary" (click)="closeExamModal()">Cancel</button>
+          <button class="btn btn-primary" (click)="saveExam()">
+            {{ isEditMode ? 'Update Exam' : 'Add Exam' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

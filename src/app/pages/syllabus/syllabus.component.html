@@ -1,0 +1,20 @@
+<div class="container py-5 text-center syllabus-bg">
+  <h2 class="fw-bold mb-2 title">
+    <span class="black-text">Classwise & Subjectwise</span>
+    <span class="yellow-text"> Syllabus Videos</span>
+  </h2>
+  <p class="subtext mb-5">According to CBSE / NCERT Syllabus</p>
+
+  <div class="row g-4 justify-content-center">
+    <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let item of syllabusList">
+      <div class="card syllabus-card border-0">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+          <h5 class=" fw-bold mb-3">{{ item.std }}</h5>
+
+          <!-- 👇 Button directly opens syllabus link -->
+          <button class="btn btn-blue px-4" (click)="openSyllabus(item.link)">Click</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

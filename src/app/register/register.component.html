@@ -1,0 +1,144 @@
+<div class="signup-container">
+  <div class="tree-silhouette"></div>
+
+  <div class="main-card">
+
+    <div class="start-label">START FOR FREE</div>
+    <h1 class="main-heading">Create new account<span class="dot">.</span></h1>
+    <div class="login-link">Already A Member? <a href="#" routerLink="/login">Log In</a></div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="firstName"
+            [class.is-invalid]="firstName?.invalid && firstName?.touched">
+          <span class="input-icon"><i class="bi bi-person-fill"></i></span>
+          <div class="invalid-feedback" *ngIf="firstName?.invalid && firstName?.touched">
+            First name is required
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="lastName"
+            [class.is-invalid]="lastName?.invalid && lastName?.touched">
+          <span class="input-icon"><i class="bi bi-person-fill"></i></span>
+          <div class="invalid-feedback" *ngIf="lastName?.invalid && lastName?.touched">
+            Last name is required
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group mb-3">
+        <label class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          formControlName="email"
+          [class.is-invalid]="email?.invalid && email?.touched">
+        <span class="input-icon"><i class="bi bi-envelope-fill"></i></span>
+        <div class="invalid-feedback" *ngIf="email?.invalid && email?.touched">
+          Valid email is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input
+          [type]="passwordVisible ? 'text' : 'password'"
+          class="form-control password-field"
+          formControlName="password"
+          [class.is-invalid]="password?.invalid && password?.touched">
+        <span class="password-toggle" (click)="togglePasswordVisibility()">
+          <i class="bi {{ passwordVisible ? 'bi-eye-slash' : 'bi-eye' }}"></i>
+        </span>
+        <div class="invalid-feedback" *ngIf="password?.invalid && password?.touched">
+          Password must be at least 6 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Confirm Password</label>
+        <input
+          [type]="confirmPasswordVisible ? 'text' : 'password'"
+          class="form-control password-field"
+          formControlName="confirmPassword"
+          [class.is-invalid]="confirmPassword?.invalid && confirmPassword?.touched">
+        <span class="password-toggle" (click)="toggleConfirmPasswordVisibility()">
+          <i class="bi {{ confirmPasswordVisible ? 'bi-eye-slash' : 'bi-eye' }}"></i>
+        </span>
+        <div class="invalid-feedback" *ngIf="confirmPassword?.invalid && confirmPassword?.touched">
+          Password must be at least 6 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Phone</label>
+        <input
+          type="tel"
+          class="form-control"
+          formControlName="phone"
+          [class.is-invalid]="phone?.invalid && phone?.touched">
+        <span class="input-icon"><i class="bi bi-telephone-fill"></i></span>
+        <div class="invalid-feedback" *ngIf="phone?.invalid && phone?.touched">
+          Phone number is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Role</label>
+        <select
+          class="form-control"
+          formControlName="role"
+          [class.is-invalid]="role?.invalid && role?.touched">
+          <option value="">Select Role</option>
+          <option value="student">Student</option>
+          <option value="teacher">Teacher</option>
+          <option value="parent">Parent</option>
+        </select>
+        <div class="invalid-feedback" *ngIf="role?.invalid && role?.touched">
+          Role is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="terms"
+            formControlName="terms"
+            [class.is-invalid]="terms?.invalid && terms?.touched">
+          <label class="form-check-label" for="terms">
+            I agree to the <a href="#" class="text-decoration-none">Terms & Conditions</a>
+          </label>
+        </div>
+        <div class="invalid-feedback" *ngIf="terms?.invalid && terms?.touched">
+          You must agree to the terms
+        </div>
+      </div>
+
+      <div class="button-group">
+        <button type="submit" class="btn-primary-custom full-width">
+          Create account
+        </button>
+      </div>
+    </form>
+
+    <div class="corner-logo">
+      <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 15 L25 25 L15 35 L25 45" stroke="white" stroke-width="3" stroke-linecap="round"/>
+        <path d="M30 15 L40 25 L30 35 L40 45" stroke="white" stroke-width="3" stroke-linecap="round"/>
+        <path d="M45 15 L45 45" stroke="white" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+</div>

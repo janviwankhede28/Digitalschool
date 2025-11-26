@@ -1,0 +1,66 @@
+<!-- Header Navbar -->
+ <!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3 fixed-top">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center" href="#">
+<img src="assets/logo1.png" alt="Logo" class="navbar-logo me-2" />
+      <h4 class="mb-0 fw-bold text-primary"></h4>
+    </a>
+
+    <!-- Toggler -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+     <ul class="navbar-nav mx-auto text-center">
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/home" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/courses" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Courses</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/academic" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Academics</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/Gallery" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Gallery</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/about-us" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">About Us</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/admission" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Admissions</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/blog" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Blog</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/contact-us" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Contact</a>
+  </li>
+</ul>
+
+
+      <div class="d-flex align-items-center">
+        <a routerLink="/login" class="btn btn-warning rounded-pill fw-bold px-4">
+          <i class="fa-solid fa-pen me-2"></i>Login Here
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>

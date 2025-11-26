@@ -1,0 +1,79 @@
+/* Hero Section */
+.student-portal-section {
+  background: url('/assets/student-portal-bg.jpg') center/cover no-repeat;
+  height: 100vh;
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+.portal-title {
+  font-size: 3rem;
+  z-index: 2;
+  position: relative;
+}
+.highlight {
+  color: #ffc107;
+}
+.portal-description {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* Feature Cards */
+.feature-card {
+  background: #fff;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+.feature-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+/* Why Choose */
+.why-card:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+/* How It Works */
+.how-it-works {
+  background: linear-gradient(135deg, #ff8c00, #ffca28);
+}
+.step-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2007ff;
+}
+
+/* Stats */
+.stats-section h1 {
+  color: #ffc107;
+}
+
+/* CTA */
+.cta-section {
+  background: linear-gradient(135deg, #ff8c00, #ffca28);
+}
+
+/* Animation */
+.feature-card, .why-card, .step-card {
+  transition: transform 0.3s ease-in-out;
+}
+.feature-card:hover, .why-card:hover, .step-card:hover {
+  transform: translateY(-8px);
+}
+.count {
+  color: #ffc107;
+  font-weight: bold;
+  transition: all 0.5s ease-in-out;
+}

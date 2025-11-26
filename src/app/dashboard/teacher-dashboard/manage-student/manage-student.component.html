@@ -1,0 +1,63 @@
+<div class="card bg-white h-100 shadow-sm">
+  <div class="card-header bg-white border-bottom d-flex justify-content-between align-items-center">
+    <h5 class="mb-0 text-dark fw-bold">
+      <i class="bi bi-people-fill me-2 text-warning"></i>Manage Students
+    </h5>
+    <div>
+      <input type="text" class="form-control form-control-sm d-inline-block me-2" style="width:200px" placeholder="Search student..." [(ngModel)]="search">
+      <button class="btn btn-sm btn-warning" (click)="openAdd()">+ Add Student</button>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Roll</th>
+            <th>Grade</th>
+            <th>Section</th>
+            <th>Phone</th>
+            <th class="text-end">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let s of filteredStudents(); let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{s.name}}</td>
+            <td>{{s.roll}}</td>
+            <td>{{s.grade}}</td>
+            <td>{{s.section}}</td>
+            <td>{{s.phone}}</td>
+            <td class="text-end">
+              <button class="btn btn-sm btn-outline-warning me-1" (click)="edit(s)">
+                <i class="bi bi-pencil"></i>
+              </button>
+              <button class="btn btn-sm btn-outline-danger" (click)="remove(s)">
+                <i class="bi bi-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Add/Edit Modal -->
+  <div *ngIf="editing" class="overlay">
+    <div class="card modal-box">
+      <h6 class="fw-bold mb-2">{{ editing.id ? 'Edit Student' : 'Add Student' }}</h6>
+      <input type="text" class="form-control form-control-sm mb-2" placeholder="Name" [(ngModel)]="editing.name">
+      <input type="text" class="form-control form-control-sm mb-2" placeholder="Roll" [(ngModel)]="editing.roll">
+      <input type="text" class="form-control form-control-sm mb-2" placeholder="Grade" [(ngModel)]="editing.grade">
+      <input type="text" class="form-control form-control-sm mb-2" placeholder="Section" [(ngModel)]="editing.section">
+      <input type="text" class="form-control form-control-sm mb-3" placeholder="Phone" [(ngModel)]="editing.phone">
+      <div class="text-end">
+        <button class="btn btn-sm btn-outline-secondary me-2" (click)="closeEdit()">Cancel</button>
+        <button class="btn btn-sm btn-warning" (click)="save()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

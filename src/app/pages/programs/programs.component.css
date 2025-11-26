@@ -1,0 +1,40 @@
+/* Make all cards line up horizontally */
+.program-card {
+  width: 240px;          /* a bit narrow so all fit in one line */
+  height: 380px;         /* vertical rectangular shape */
+  transition: transform 0.3s ease-in-out;
+}
+
+.card-img {
+  height: 340px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.card-img img {
+  object-fit: cover;
+  height: 100%;
+  transition: transform 0.4s ease-in-out, filter 0.4s ease-in-out;
+}
+
+/* Hover zoom and dark overlay */
+.card-img:hover img {
+  transform: scale(1.1);
+  filter: brightness(60%);
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.361);
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  border-radius: 12px;
+}
+
+.card-img:hover .overlay {
+  opacity: 1;
+}
+
+/* Optional subtle hover scale */
+.program-card:hover {
+  transform: translateY(-5px);
+}

@@ -1,0 +1,161 @@
+<div class="container my-4">
+
+  <!-- Header -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold text-warning">
+      <i class="bi bi-people-fill me-2"></i> Students
+    </h2>
+    <button class="btn btn-warning text-white fw-semibold px-4 py-2" (click)="toggleForm()">
+      <i class="bi" [ngClass]="showForm ? 'bi-x-circle' : 'bi-plus-circle'"></i>
+      {{ showForm ? 'Close Form' : 'Add Student' }}
+    </button>
+  </div>
+
+  <!-- Success Message -->
+  <div *ngIf="message" class="alert alert-success alert-dismissible fade show py-2" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" (click)="message = ''"></button>
+  </div>
+
+  <!-- Add/Edit Form -->
+  <div *ngIf="showForm" class="card shadow-sm rounded-4 mb-4">
+    <div class="card-body">
+
+      <form #studentForm="ngForm" (ngSubmit)="saveStudent(studentForm)">
+
+        <div class="row g-3">
+
+          <!-- Name -->
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">Student Name</label>
+            <input type="text" 
+              class="form-control form-control-lg rounded-3" 
+              name="name" 
+              [(ngModel)]="studentData.name"
+              required
+              minlength="3">
+            <small class="text-danger" *ngIf="studentForm.submitted && !studentForm.controls['name']?.valid">
+              Name must be at least 3 characters
+            </small>
+          </div>
+
+          <!-- Course -->
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">Course</label>
+            <input type="text" 
+              class="form-control form-control-lg rounded-3" 
+              name="course" 
+              [(ngModel)]="studentData.course"
+              required>
+          </div>
+
+          <!-- Email -->
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">Email</label>
+            <input type="email" 
+              class="form-control form-control-lg rounded-3"
+              name="email"
+              [(ngModel)]="studentData.email"
+              required
+              email>
+            <small class="text-danger" *ngIf="studentForm.submitted && !studentForm.controls['email']?.valid">
+              Enter a valid email address
+            </small>
+          </div>
+
+          <!-- Contact -->
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">Contact</label>
+            <input 
+              type="text" 
+              class="form-control form-control-lg rounded-3"
+              name="contact"
+              [(ngModel)]="studentData.contact" 
+              required 
+              pattern="[0-9]{10}">
+            <small class="text-danger" *ngIf="studentForm.submitted && !studentForm.controls['contact']?.valid">
+              Enter 10 digit mobile number
+            </small>
+          </div>
+
+          <!-- Date -->
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">Enrollment Date</label>
+            <input type="date"
+              class="form-control form-control-lg rounded-3" 
+              name="enrollmentDate"
+              [(ngModel)]="studentData.enrollmentDate"
+              required>
+          </div>
+
+          <!-- Status -->
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">Status</label>
+            <select class="form-select form-select-lg rounded-3" name="status" [(ngModel)]="studentData.status">
+              <option>Active</option>
+              <option>Inactive</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="text-end mt-4">
+          <button type="submit" class="btn btn-success px-5 py-2 rounded-3">
+            {{ isEdit ? 'Update Student' : 'Add Student' }}
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  <!-- TABLE -->
+  <div class="card shadow-sm rounded-4">
+    <div class="card-body p-0">
+
+      <table class="table table-bordered table-hover m-0 text-center align-middle">
+        <thead class="bg-warning bg-opacity-25">
+          <tr>
+            <th>Student Name</th>
+            <th>Course</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Enrollment Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let student of students">
+            <td><strong>{{ student.name }}</strong></td>
+            <td>{{ student.course }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.contact }}</td>
+            <td>{{ student.enrollmentDate }}</td>
+            <td>
+              <span class="badge px-2 py-1 rounded-pill"
+                    [ngClass]="student.status === 'Active' ? 
+                    'bg-success bg-opacity-25 text-success border border-success' : 
+                    'bg-danger bg-opacity-25 text-danger border border-danger'">
+                {{ student.status }}
+              </span>
+            </td>
+            <td>
+              <button class="btn btn-outline-primary btn-sm me-2" (click)="editStudent(student)">
+                <i class="bi bi-pencil"></i>
+              </button>
+              <button class="btn btn-outline-danger btn-sm" (click)="deleteStudent(student.id)">
+                <i class="bi bi-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,20 @@
+.card {
+  border: 2px solid #ffc10720;
+}
+
+.bg-light {
+  background-color: #fffbea !important;
+}
+
+.list-group-item {
+  transition: 0.2s ease-in-out;
+}
+
+.list-group-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.badge {
+  font-size: 0.7rem;
+}

@@ -1,0 +1,158 @@
+<div class="container my-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="fw-bold text-warning">
+      <i class="bi bi-journal-bookmark-fill me-2"></i> Content Management
+    </h2>
+    <button class="btn btn-warning text-white fw-semibold" (click)="openAddContentModal()">
+      <i class="bi bi-plus-circle me-2"></i> Add Content
+    </button>
+  </div>
+
+  <div class="card shadow-sm rounded-4">
+    <div class="card-body p-0">
+      <table class="table table-bordered table-hover m-0">
+        <thead class="bg-warning bg-opacity-25">
+          <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Subject</th>
+            <th>Description</th>
+            <th>Upload Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let content of contents; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td><strong>{{ content.title }}</strong></td>
+            <td>{{ content.type }}</td>
+            <td>{{ content.subject }}</td>
+            <td>{{ content.description }}</td>
+            <td>{{ content.uploadDate }}</td>
+            <td>
+              <span class="badge" [ngClass]="content.status === 'Published' ? 'bg-success' : 'bg-warning'">
+                {{ content.status }}
+              </span>
+            </td>
+            <td>
+              <button
+                class="btn btn-outline-primary btn-sm me-2"
+                (click)="openEditContentModal(content, i)"
+              >
+                <i class="bi bi-pencil"></i>
+              </button>
+              <button
+                class="btn btn-outline-danger btn-sm"
+                (click)="deleteContent(i)"
+              >
+                <i class="bi bi-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div
+    class="modal fade show"
+    tabindex="-1"
+    role="dialog"
+    style="display: block;"
+    *ngIf="showContentModal"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-3">
+        <div class="modal-header border-0">
+          <h5 class="modal-title fw-bold">
+            {{ isEditMode ? 'Edit Content' : 'Add New Content' }}
+          </h5>
+          <button type="button" class="btn-close" (click)="closeContentModal()"></button>
+        </div>
+
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Title</label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="newContent.title"
+                name="title"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Type</label>
+              <select
+                class="form-select"
+                [(ngModel)]="newContent.type"
+                name="type"
+              >
+                <option value="">Select</option>
+                <option>Lesson</option>
+                <option>Video</option>
+                <option>Quiz</option>
+                <option>Document</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Subject</label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="newContent.subject"
+                name="subject"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Description</label>
+              <textarea
+                class="form-control"
+                [(ngModel)]="newContent.description"
+                name="description"
+                rows="3"
+              ></textarea>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Upload Date</label>
+              <input
+                type="date"
+                class="form-control"
+                [(ngModel)]="newContent.uploadDate"
+                name="uploadDate"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Status</label>
+              <select
+                class="form-select"
+                [(ngModel)]="newContent.status"
+                name="status"
+              >
+                <option value="">Select</option>
+                <option>Published</option>
+                <option>Draft</option>
+                <option>Archived</option>
+              </select>
+            </div>
+          </form>
+        </div>
+
+        <div class="modal-footer border-0">
+          <button class="btn btn-secondary" (click)="closeContentModal()">Cancel</button>
+          <button class="btn btn-primary" (click)="saveContent()">
+            {{ isEditMode ? 'Update Content' : 'Add Content' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

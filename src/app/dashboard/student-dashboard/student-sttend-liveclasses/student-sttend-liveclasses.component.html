@@ -1,0 +1,117 @@
+<div class="container py-5">
+  <!-- Header Section -->
+  <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+    <div>
+      <h2 class="fw-bold text-dark">🎥 Live Classes</h2>
+      <p class="text-secondary mb-0">Join your ongoing and upcoming live sessions below.</p>
+    </div>
+
+    <div class="d-flex mt-3 mt-md-0 gap-2">
+      <!-- Search Bar -->
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search class, instructor..."
+        [(ngModel)]="searchText"
+        (input)="filterClasses()"
+      />
+      <button class="btn btn-warning">
+        <i class="bi bi-plus-circle me-1"></i> Schedule New Class
+      </button>
+    </div>
+  </div>
+
+  <!-- Live Classes Grid -->
+  <div class="row g-4">
+    <div class="col-lg-4 col-md-6" *ngFor="let c of filteredClasses">
+      <div class="live-card shadow-sm h-100">
+        <span class="live-badge" [ngClass]="c.isLive ? 'bg-danger' : 'bg-secondary'">
+          <i class="bi" [ngClass]="c.isLive ? 'bi-broadcast-pin' : 'bi-clock-history'"></i>
+          {{ c.isLive ? 'Live Now' : 'Upcoming' }}
+        </span>
+
+        <img [src]="c.image" class="class-img" alt="Live Class" />
+
+        <div class="card-body">
+          <h5 class="fw-bold text-dark">{{ c.title }}</h5>
+          <p class="text-secondary small mb-1">
+            Instructor: <strong>{{ c.instructor }}</strong>
+          </p>
+          <p class="class-time mb-2">
+            <i class="bi bi-clock"></i> {{ c.time }}
+          </p>
+          <div class="d-flex justify-content-between mt-3">
+            <button
+              class="btn btn-danger btn-sm"
+              *ngIf="c.isLive"
+              (click)="joinClass(c)"
+            >
+              <i class="bi bi-camera-video"></i> Join Now
+            </button>
+            <button
+              class="btn btn-outline-danger btn-sm"
+              *ngIf="!c.isLive"
+              disabled
+            >
+              <i class="bi bi-hourglass-split"></i> Starts Soon
+            </button>
+
+            <button class="btn btn-outline-warning btn-sm" (click)="showDetails(c)">
+              <i class="bi bi-info-circle"></i> Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Details Modal -->
+  <div
+    class="modal fade"
+    id="detailsModal"
+    tabindex="-1"
+    aria-labelledby="detailsModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-warning text-dark">
+          <h5 class="modal-title fw-bold">{{ selectedClass?.title }}</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <img
+            [src]="selectedClass?.image"
+            class="img-fluid rounded mb-3"
+            alt="Class Image"
+          />
+          <p><strong>Instructor:</strong> {{ selectedClass?.instructor }}</p>
+          <p><strong>Time:</strong> {{ selectedClass?.time }}</p>
+          <p><strong>Description:</strong> {{ selectedClass?.description }}</p>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-danger"
+            *ngIf="selectedClass?.isLive"
+            (click)="joinClass(selectedClass)"
+          >
+            <i class="bi bi-camera-video"></i> Join Now
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

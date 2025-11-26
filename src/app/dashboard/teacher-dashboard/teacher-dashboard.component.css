@@ -1,0 +1,16 @@
+.active-link {
+  border-left: 5px solid #212529;
+}
+
+.list-group-item {
+  transition: 0.2s ease-in-out;
+}
+
+.list-group-item:hover {
+  background-color: #fff3cd !important;
+  color: #000 !important;
+}
+
+.navbar {
+  z-index: 1000;
+}

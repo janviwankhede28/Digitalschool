@@ -1,0 +1,37 @@
+.course-card {
+  border-radius: 20px;
+  transition: all 0.4s ease-in-out;
+  background: #fff;
+}
+.container {
+  margin-top: 100px; /* navbar खाली जागा देतो */
+}
+
+.course-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+.card-img-top {
+  height: 190px;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  transition: transform 0.4s ease;
+}
+.course-card:hover .card-img-top {
+  transform: scale(1.1);
+}
+.badge {
+  background: linear-gradient(45deg, #007bff, #00c3ff);
+  font-size: 0.75rem;
+  padding: 5px 10px;
+  border-radius: 12px;
+}
+input.form-control {
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+.container {
+  max-width: 1200px;
+}
