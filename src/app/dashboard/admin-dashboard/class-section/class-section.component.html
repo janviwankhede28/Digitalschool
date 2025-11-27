@@ -1,0 +1,59 @@
+<div class="container mt-4">
+
+  <h2 class="text-center mb-4">Class & Section Management</h2>
+
+  <!-- CREATE CLASS -->
+  <div class="card p-3 mb-4">
+    <h4>Create Class</h4>
+
+    <form [formGroup]="classForm" (ngSubmit)="createClass()">
+
+      <input formControlName="className" class="form-control mb-2" placeholder="Class Name">
+      <input formControlName="description" class="form-control mb-2" placeholder="Description">
+
+      <button class="btn btn-primary">Create Class</button>
+    </form>
+  </div>
+
+  <!-- CREATE SECTION -->
+  <div class="card p-3 mb-4">
+    <h4>Create Section</h4>
+
+    <form [formGroup]="sectionForm" (ngSubmit)="createSection()">
+
+      <input formControlName="classId" class="form-control mb-2" placeholder="Class ID">
+
+      <input formControlName="sectionName" class="form-control mb-2" placeholder="Section Name">
+      <input formControlName="capacity" class="form-control mb-2" placeholder="Capacity">
+
+      <button class="btn btn-success">Create Section</button>
+    </form>
+  </div>
+
+  <!-- UPDATE SECTION -->
+  <div class="card p-3 mb-4">
+    <h4>Update Section</h4>
+
+    <form [formGroup]="updateSectionForm" (ngSubmit)="updateSection()">
+
+      <input formControlName="sectionId" class="form-control mb-2" placeholder="Section ID">
+
+      <input formControlName="sectionName" class="form-control mb-2" placeholder="New Section Name">
+      <input formControlName="capacity" class="form-control mb-2" placeholder="New Capacity">
+
+      <button class="btn btn-warning">Update Section</button>
+    </form>
+  </div>
+
+  <!-- DELETE SECTION -->
+  <div class="card p-3">
+    <h4>Delete Section</h4>
+
+    <input #sid class="form-control mb-2" placeholder="Section ID to delete">
+
+    <button class="btn btn-danger w-100" (click)="deleteSection(+sid.value)">
+      Delete Section
+    </button>
+  </div>
+
+</div>

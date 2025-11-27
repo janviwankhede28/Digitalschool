@@ -69,6 +69,7 @@ import { NavbarGalleryComponent } from './pages/navbar-gallery/navbar-gallery.co
 import { TimetableComponent } from './dashboard/teacher-dashboard/timetable/timetable.component';
 import { StudentTimetableComponent } from './dashboard/student-dashboard/student-timetable/student-timetable.component';
 import { ParentsTimetableComponent } from './dashboard/parent-dashboard/parents-timetable/parents-timetable.component';
+import { ClassSectionComponent } from './dashboard/admin-dashboard/class-section/class-section.component';
 
 
 export const routes: Routes = [
@@ -93,6 +94,7 @@ export const routes: Routes = [
       { path: 'parent-management', component: ParentManagementComponent },
       { path: 'exam-planner', component: ExamPlannerComponent },
       { path: 'content-management', component: ContentManagementComponent },
+      { path: 'class-Section', component:ClassSectionComponent },
 
 
     ],
