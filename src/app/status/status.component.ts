@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { registerService } from '../register.service';
+import { registerService } from '../../service/register.service';
 
 @Component({
   selector: 'app-status',

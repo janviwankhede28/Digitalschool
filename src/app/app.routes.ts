@@ -25,7 +25,6 @@ import { StudentMyCourseComponent } from './dashboard/student-dashboard/student-
 import { StudentSttendLiveclassesComponent } from './dashboard/student-dashboard/student-sttend-liveclasses/student-sttend-liveclasses.component';
 import { StudentSubmitassignmentComponent } from './dashboard/student-dashboard/student-submitassignment/student-submitassignment.component';
 
-
 import { AttendenceComponent } from './dashboard/parent-dashboard/attendence/attendence.component';
 import { FeeRemindersComponent } from './dashboard/parent-dashboard/fee-reminders/fee-reminders.component';
 import { LearningProgressComponent } from './dashboard/parent-dashboard/learning-progress/learning-progress.component';
@@ -72,9 +71,7 @@ import { ParentsTimetableComponent } from './dashboard/parent-dashboard/parents-
 import { ClassSectionComponent } from './dashboard/admin-dashboard/class-section/class-section.component';
 import { StatusComponent } from './status/status.component';
 
-
 import { RegisterComponent } from './register/register.component';
-
 
 export const routes: Routes = [
   // Home
@@ -83,11 +80,11 @@ export const routes: Routes = [
   // Login
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-   { path: 'status', component:StatusComponent },
+  { path: 'status', component: StatusComponent },
 
   {
     path: 'admin',
-  
+
     component: AdminDashboardComponent,
     children: [
       { path: '', redirectTo: 'main-content', pathMatch: 'full' },
@@ -100,17 +97,11 @@ export const routes: Routes = [
       { path: 'parent-management', component: ParentManagementComponent },
       { path: 'exam-planner', component: ExamPlannerComponent },
       { path: 'content-management', component: ContentManagementComponent },
-      { path: 'class-Section', component:ClassSectionComponent },
-      
-     
-
-
-
+      { path: 'class-Section', component: ClassSectionComponent },
     ],
   },
   {
     path: 'student',
-   
 
     component: StudentDashboardComponent,
     children: [
@@ -122,12 +113,12 @@ export const routes: Routes = [
       { path: 'my-course', component: StudentMyCourseComponent },
       { path: 'liveclasses', component: StudentSttendLiveclassesComponent },
       { path: 'assignment', component: StudentSubmitassignmentComponent },
-      { path: 'timetable', component: StudentTimetableComponent},
+      { path: 'timetable', component: StudentTimetableComponent },
     ],
   },
   {
     path: 'parent',
-   
+
     component: ParentDashboardComponent,
     children: [
       { path: '', redirectTo: 'main-content-parent', pathMatch: 'full' },
@@ -136,13 +127,13 @@ export const routes: Routes = [
       { path: 'fee-reminders', component: FeeRemindersComponent },
       { path: 'learning-progress', component: LearningProgressComponent },
       { path: 'school-circulars', component: SchoolCircularsComponent },
-      { path: 'timetable', component: ParentsTimetableComponent},
+      { path: 'timetable', component: ParentsTimetableComponent },
     ],
   },
 
   {
     path: 'teacher',
-  
+
     component: TeacherDashboardComponent,
     children: [
       { path: '', redirectTo: 'main-content-teacher', pathMatch: 'full' },
@@ -153,7 +144,7 @@ export const routes: Routes = [
       { path: 'create-assignment', component: CreateAssignmentComponent },
       { path: 'manage-student', component: ManageStudentComponent },
       { path: 'student-progress', component: StudentProgressComponent },
-      { path: 'timetable', component: TimetableComponent},
+      { path: 'timetable', component: TimetableComponent },
     ],
   },
   { path: 'dashboard/teacher', component: OurTeacherComponent },
@@ -169,19 +160,18 @@ export const routes: Routes = [
   { path: 'navbar', component: NavbarComponent },
   { path: 'our_teacher', component: OurTeacherComponent },
 
-  
-  { path: 'programs', component: ProgramsComponent},
-  { path: 'syllabus', component: SyllabusComponent},
-  {path:'testimonials',component:TestimonialsComponent},
-   {path:'about-us',component:AboutUsComponent},
-    {path:'academic',component:AcademicComponent},
-     {path:'admission',component:AdmissionComponent},
-      {path:'blog',component:BlogComponent},
-      {path:'courses',component:CoursesComponent},
- 
+  { path: 'programs', component: ProgramsComponent },
+  { path: 'syllabus', component: SyllabusComponent },
+  { path: 'testimonials', component: TestimonialsComponent },
+  { path: 'about-us', component: AboutUsComponent },
+  { path: 'academic', component: AcademicComponent },
+  { path: 'admission', component: AdmissionComponent },
+  { path: 'blog', component: BlogComponent },
+  { path: 'courses', component: CoursesComponent },
+
   // {path:'courses',component:CoursesComponent},
- {path:'terms-condition',component:TermsConditionComponent},
-  {path:'privacy-policy',component:PrivacyPolicyComponent},
+  { path: 'terms-condition', component: TermsConditionComponent },
+  { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'gallery', component: GalleryComponent },
 
   { path: 'programs', component: ProgramsComponent },
@@ -191,13 +181,14 @@ export const routes: Routes = [
   { path: 'academic', component: AcademicComponent },
   { path: 'admission', component: AdmissionComponent },
   { path: 'blog', component: BlogComponent },
-  { path: 'contact-us', component: ContactUsComponent},
-  { path: 'student-portal', component: StudentPortalComponent},
- { path: 'history', component: HistoryComponent},
-  { path: 'scholarship', component: ScholarshipComponent},
-   { path: 'campus-tour', component: CampusTourComponent},
-   { path: 'Gallery', component: NavbarGalleryComponent},
+  { path: 'contact-us', component: ContactUsComponent },
+  { path: 'student-portal', component: StudentPortalComponent },
+  { path: 'history', component: HistoryComponent },
+  { path: 'scholarship', component: ScholarshipComponent },
+  { path: 'campus-tour', component: CampusTourComponent },
+  { path: 'Gallery', component: NavbarGalleryComponent },
   // Fallback route
 
-  { path: '**', redirectTo: '' },
+  { path: '**', redirectTo: 'login' },
+
 ];

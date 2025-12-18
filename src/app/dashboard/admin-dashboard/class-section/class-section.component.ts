@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ClassSectionService } from '../../../class-section.service';
 import { CommonModule } from '@angular/common';
+import { ClassSectionService } from '../../../../service/class-section.service';
 
 @Component({
   selector: 'app-class-section',
